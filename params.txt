@@ -1,1 +1,1 @@
- -e aom --resume --verbose --temp .\cache -a " -c:a copy " -v "  --threads=8 --cpu-used=6 --end-usage=q --cq-level=30 --bit-depth=10 "
+ -e aom --resume --verbose --temp .\cache -a " -c:a copy " -v "  --threads=6 --cpu-used=6 --end-usage=q --cq-level=24 --bit-depth=10 "
