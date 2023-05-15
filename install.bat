@@ -22,11 +22,11 @@ echo  ````````````
 
 :: Create these directories
 for %%d in (input input\completed-inputs output cache ) do (
-    mkdir .\%%d
+   if not exist .\%%d mkdir .\%%d
 )
 
-for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom) do (
-    mkdir .\dependencies\%%d
+for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom rav1e) do (
+    if not exist .\%%d mkdir .\dependencies\%%d
 )
 
 :: Download portable Wget
@@ -70,6 +70,12 @@ cd .\vmaf
 
 :: Download vmaf model
 %Download-->% https://raw.githubusercontent.com/Netflix/vmaf/master/model/vmaf_v0.6.1.json
+
+cd ..\
+cd .\rav1e
+
+:: Download rav1e
+%Download-->% https://github.com/xiph/rav1e/releases/latest/download/v0.6.5/rav1e.exe
 
 cd ..\
 cd .\vapoursynth64-r62
