@@ -1,5 +1,5 @@
 @echo off
-TITLE Av1 Encode 🤖
+TITLE Av1 Encode 🐦
 
 cls
 

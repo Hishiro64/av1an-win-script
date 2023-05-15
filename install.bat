@@ -1,5 +1,5 @@
 @echo off
-TITLE Av1an Win Script ⚙
+TITLE Av1an Win Script 🐦
 
 cls
 
