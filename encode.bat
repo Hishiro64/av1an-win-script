@@ -18,7 +18,7 @@ set path=%AV1%\dependencies\vapoursynth64-r62;%AV1%\dependencies\ffmpegAv1an;%AV
 :: Count how many in queue
 set /a queueCounter=0
 
-for %%f in (input\*.webm input\*.mp4 input\*.mkv) do (
+for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
     set /a queueCounter+=1
 )
 
@@ -34,7 +34,7 @@ set /p args=<%AV1%\params.txt
 
 :: Recursively encode contents in input
 set /a queue=1
-for %%f in (input\*.webm input\*.mp4 input\*.mkv) do (
+for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
 
     echo ----------------------------
     echo  Encoding ^| !queueCounter! left in queue
