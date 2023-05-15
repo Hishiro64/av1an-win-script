@@ -22,11 +22,11 @@ echo  ````````````
 
 :: Create these directories
 for %%d in (input input\completed-inputs output cache ) do (
-   if not exist .\%%d mkdir .\%%d
+   mkdir .\%%d  > nul
 )
 
 for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom rav1e) do (
-    if not exist .\%%d mkdir .\dependencies\%%d
+    mkdir .\dependencies\%%d  > nul
 )
 
 :: Download portable Wget
@@ -63,7 +63,7 @@ cd .\aom
 :: Download aom av1 encoder
 %Download-->% https://github.com/BlueSwordM/aom-av1-psy/releases/download/aom-av1-psy-1.0.0/Skylake.Windows.aom-av1-psy-Windows-Endless_Possibility-LTO-2022-09-06.7z
 %Extract-->% Skylake.Windows.aom-av1-psy-Windows-Endless_Possibility-LTO-2022-09-06.7z > nul
-ren aom-av1-psy-Windows-Endless_Possibility-Skylake-LTO-2022-09-06.exe aomenc.exe
+MOVE /y aom-av1-psy-Windows-Endless_Possibility-Skylake-LTO-2022-09-06.exe aomenc.exe
 
 cd ..\
 cd .\vmaf
@@ -75,7 +75,7 @@ cd ..\
 cd .\rav1e
 
 :: Download rav1e
-%Download-->% https://github.com/xiph/rav1e/releases/latest/download/v0.6.5/rav1e.exe
+%Download-->% https://github.com/xiph/rav1e/releases/latest/download/rav1e.exe
 
 cd ..\
 cd .\vapoursynth64-r62
