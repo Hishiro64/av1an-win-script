@@ -8,7 +8,7 @@ A Windows Batch script that sets up [Av1an](https://github.com/master-of-zen/Av1
   Open PowerShell in a directory path that contains no spaces and run:
 
   ````
-  git clone https://github.com/Hishiro64//av1an-win-script.git; ./av1an-win-script/install.bat
+  git clone https://github.com/Hishiro64/av1an-win-script.git; ./av1an-win-script/install.bat
   ````
 
 ## 🚗 Usage
