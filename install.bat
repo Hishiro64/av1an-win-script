@@ -130,4 +130,7 @@ del wget.exe > nul
 del 7zr.exe > nul
 del preview.png > nul
 
-PAUSE
+echo:
+echo Installation Finished
+echo:   Exiting...
+echo:
