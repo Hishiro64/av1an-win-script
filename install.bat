@@ -25,7 +25,7 @@ for %%d in (input input\completed-inputs output cache ) do (
    mkdir .\%%d  > nul
 )
 
-for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom rav1e) do (
+for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom rav1e x264) do (
     mkdir .\dependencies\%%d  > nul
 )
 
@@ -70,6 +70,12 @@ cd .\vmaf
 
 :: Download vmaf model
 %Download-->% https://raw.githubusercontent.com/Netflix/vmaf/master/model/vmaf_v0.6.1.json
+
+cd ..\
+cd .\x264
+
+:: Download x264 encoder
+%Download-->% https://artifacts.videolan.org/x264/release-win64/x264-r3107-a8b68eb.exe -O x264.exe
 
 cd ..\
 cd .\rav1e
@@ -122,5 +128,6 @@ popd
 del .wget-hsts > nul
 del wget.exe > nul
 del 7zr.exe > nul
+del preview.png > nul
 
 PAUSE
