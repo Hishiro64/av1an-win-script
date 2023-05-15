@@ -78,6 +78,10 @@ del .\python-3.11.2-embed-amd64.zip
 %Extract-->% .\VapourSynth64-Portable-R62.7z > nul
 del .\VapourSynth64-Portable-R62.7z
 
+:: Download plugins
+.\python.exe .\vsrepo.py update -p
+.\python.exe .\vsrepo.py install lsmas ffms2 -p
+
 cd ..\
 cd .\svt-av1
 
