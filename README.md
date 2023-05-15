@@ -1,4 +1,4 @@
-#  ⚙ Av1an Win Script
+#  🐦 Av1an Win Script
 
 A Windows Batch script that sets up [Av1an](https://github.com/master-of-zen/Av1an) with all its dependencies in a portable workspace. It doesnt require building from source or modifying any path variables. Once installed, It will queue your input files to be encoded one by one using the parameters you set.
 
