@@ -1,5 +1,5 @@
 @echo off
-TITLE Av1an Windows Installer Script ⚙
+TITLE Av1an Win Script ⚙
 
 cls
 
@@ -17,15 +17,15 @@ set "Extract-->=%AV1%\7zr.exe -y x"
 :: Correct path
 cd "%AV1%"
 
-echo   Installing  Av1 Utillies
-echo  ``````````````````````````
+echo   Installing
+echo  ````````````
 
 :: Create these directories
 for %%d in (input input\completed-inputs output cache ) do (
     mkdir .\%%d
 )
 
-for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix svt-av1 aom) do (
+for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom) do (
     mkdir .\dependencies\%%d
 )
 
@@ -64,6 +64,12 @@ cd .\aom
 %Download-->% https://github.com/BlueSwordM/aom-av1-psy/releases/download/aom-av1-psy-1.0.0/Skylake.Windows.aom-av1-psy-Windows-Endless_Possibility-LTO-2022-09-06.7z
 %Extract-->% Skylake.Windows.aom-av1-psy-Windows-Endless_Possibility-LTO-2022-09-06.7z > nul
 ren aom-av1-psy-Windows-Endless_Possibility-Skylake-LTO-2022-09-06.exe aomenc.exe
+
+cd ..\
+cd .\vmaf
+
+:: Download vmaf model
+%Download-->% https://raw.githubusercontent.com/Netflix/vmaf/master/model/vmaf_v0.6.1.json
 
 cd ..\
 cd .\vapoursynth64-r62
