@@ -30,7 +30,7 @@ for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom rav1e x26
 )
 
 :: Download portable Wget
-curl -O -C - --progress-bar https://eternallybored.org/misc/wget/1.21.3/64/wget.exe
+curl -O -C - --progress-bar https://web.archive.org/web/20230511215002/https://eternallybored.org/misc/wget/1.21.4/64/wget.exe
 
 :: Download portable 7zip
 %Download-->% https://www.7-zip.org/a/7zr.exe
