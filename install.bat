@@ -21,7 +21,7 @@ echo   Installing
 echo  ````````````
 
 :: Create these directories
-for %%d in (input input\completed-inputs output cache ) do (
+for %%d in (input input\completed-inputs output ) do (
    mkdir .\%%d  > nul
 )
 
