@@ -21,12 +21,16 @@ echo   Installing
 echo  ````````````
 
 :: Create these directories
-for %%d in (input input\completed-inputs output ) do (
+for %%d in (input input\completed-inputs output scripts) do (
    mkdir .\%%d  > nul
 )
 
 for %%d in (vapoursynth64-r62 ffmpeg-5.1.2 ffmpeg-latest mkvtoolnix  svt-av1 vmaf aom rav1e x264) do (
     mkdir .\dependencies\%%d  > nul
+)
+
+for %%d in (ffmpeg ffmpeg\input ffmpeg\input\completed-inputs ffmpeg\output ffmpeg\param-examples) do (
+    mkdir .\scripts\%%d  > nul
 )
 
 :: Download portable Wget
