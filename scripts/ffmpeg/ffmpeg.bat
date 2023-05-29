@@ -29,7 +29,7 @@ if !queueCounter! == 0 (
 )
 
 :: set paramaters for FFmpeg
-set /p args=<%AV1%\params.txt
+set /p args=<%FFMPEG%\params.txt
 
 :: Recursively run FFmpeg on the contents in input
 set /a queue=1
