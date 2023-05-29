@@ -21,7 +21,7 @@ echo   Installing
 echo  ````````````
 
 :: Create these directories
-for %%d in (input input\completed-inputs output scripts) do (
+for %%d in (input input\completed-inputs output) do (
    mkdir .\%%d  > nul
 )
 
@@ -29,9 +29,13 @@ for %%d in (vapoursynth64-r62 ffmpeg-5.1.2 ffmpeg-latest mkvtoolnix  svt-av1 vma
     mkdir .\dependencies\%%d  > nul
 )
 
-for %%d in (ffmpeg ffmpeg\input ffmpeg\input\completed-inputs ffmpeg\output ffmpeg\param-examples) do (
-    mkdir .\scripts\%%d  > nul
+pushd .\scripts\ffmpeg
+
+for %%d in (input input\completed-inputs output) do (
+    mkdir .\%%d  > nul
 )
+
+popd
 
 :: Download portable Wget
 curl -O -C - --progress-bar https://web.archive.org/web/20230511215002/https://eternallybored.org/misc/wget/1.21.4/64/wget.exe
