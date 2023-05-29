@@ -6,13 +6,13 @@ cls
 setlocal enabledelayedexpansion
 
 :: Set path 
-set "AV1=..\..\%~dp0"
+set "FFMPEG=%~dp0"
 
 :: Correct path
-cd "%AV1%\scripts\ffmpeg"
+cd "%FFMPEG%"
 
-:: Set paths
-set path=%AV1%\dependencies\ffmpeg-latest
+:: Set path to FFmpeg
+set path=%FFMPEG%\..\..\dependencies\ffmpeg-latest
 
 :: Count how many in queue
 set /a queueCounter=0
