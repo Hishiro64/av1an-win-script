@@ -58,16 +58,14 @@ cd .\ffmpeg-latest
 %Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z -O ffmpeg-latest.7z
 %Extract-->% .\ffmpeg-latest.7z *.exe -r > nul
 
-del /s /q .\ffmpeg-latest.7z
-
 :: Move files out of bin
 for /r %%i in (*) do (
-    move "%%i" "%%~nxi"
+    move "%%i" "%%~nxi" > nul
 )
 
 :: Clean up
 for /d /r %%i in (*) do (
-    rd /s /q "%%i"
+    rd /s /q "%%i" > nul
 )
 
 cd ..\
