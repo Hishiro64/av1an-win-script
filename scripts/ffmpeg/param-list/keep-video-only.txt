@@ -1,0 +1,1 @@
+-an -sn -dn -map_metadata -1 -map_chapters -1 -c:v copy

@@ -1,0 +1,1 @@
+Set the parameters for FFmpeg or paste one from the "param-list" folder
