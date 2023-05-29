@@ -96,7 +96,7 @@ del .\python-3.11.2-embed-amd64.zip
 %Extract-->% .\VapourSynth64-Portable-R62.7z > nul
 del .\VapourSynth64-Portable-R62.7z
 
-:: Download plugins [But its broken for some reason]
+:: Download plugins [But its broken for now]
 :: .\python.exe .\vsrepo.py update -p
 :: .\python.exe .\vsrepo.py install lsmas ffms2 -p
 
@@ -116,7 +116,7 @@ curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4187469677/artifacts/d
 %Download-->% -i .\downloadlink.txt -O SVT-AV1-1.5.zip
 
 :: Clean up
-del download > nul
+del download > nul 2>&1
 del downloadlink.txt > nul
 del raw.txt > nul
 
