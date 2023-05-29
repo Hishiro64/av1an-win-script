@@ -58,7 +58,7 @@ cd .\ffmpeg-latest
 %Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z -O ffmpeg-latest.7z
 %Extract-->% .\ffmpeg-latest.7z *.exe -r > nul
 
-rmdir /s /q .\ffmpeg-latest.7z
+del /s /q .\ffmpeg-latest.7z
 
 cd ..\
 
