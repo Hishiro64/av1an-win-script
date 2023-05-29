@@ -28,8 +28,8 @@ if !queueCounter! == 0 (
     EXIT /B
 )
 
-:: set paramaters for av1an
-set /p args=<%AV1%\scripts\ffmpeg\params.txt
+:: set paramaters for FFmpeg
+set /p args=<%AV1%\params.txt
 
 :: Recursively run FFmpeg on the contents in input
 set /a queue=1
