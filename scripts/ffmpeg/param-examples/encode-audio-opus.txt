@@ -1,1 +1,1 @@
- -c:a libopus -b:a 128k
+-map_metadata 0 -c:v copy  -c:s copy  -c:d copy -c:a libopus -b:a 128k
