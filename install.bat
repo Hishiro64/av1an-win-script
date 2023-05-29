@@ -25,7 +25,7 @@ for %%d in (input input\completed-inputs output cache ) do (
    mkdir .\%%d  > nul
 )
 
-for %%d in (vapoursynth64-r62 ffmpeg-5.1.2 mkvtoolnix  svt-av1 vmaf aom rav1e x264) do (
+for %%d in (vapoursynth64-r62 ffmpeg-5.1.2 ffmpeg-latest mkvtoolnix  svt-av1 vmaf aom rav1e x264) do (
     mkdir .\dependencies\%%d  > nul
 )
 
@@ -40,7 +40,7 @@ curl -O -C - --progress-bar https://web.archive.org/web/20230511215002/https://e
 
 pushd .\dependencies\ffmpeg-5.1.2
 
-:: Download ffmpeg with shared libaries 
+:: Download ffmpeg with shared libaries ~5.1.2 
 %Download-->% https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-5.1.2-full_build-shared.7z
 %Extract-->% .\ffmpeg-5.1.2-full_build-shared.7z ffmpeg-5.1.2-full_build-shared\bin > nul
 
@@ -50,6 +50,15 @@ for /R "ffmpeg-5.1.2-full_build-shared\bin" %%f in (*) do (
 )
 
 rmdir /s /q .\ffmpeg-5.1.2-full_build-shared
+
+cd ..\
+cd .\ffmpeg-latest
+
+:: Download the latest ffmpeg bins 
+%Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z -O ffmpeg-latest.7z
+%Extract-->% .\ffmpeg-latest.7z *.exe -r > nul
+
+rmdir /s /q .\ffmpeg-latest.7z
 
 cd ..\
 
