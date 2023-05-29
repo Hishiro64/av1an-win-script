@@ -60,6 +60,16 @@ cd .\ffmpeg-latest
 
 del /s /q .\ffmpeg-latest.7z
 
+:: Move files out of bin
+for /r %%i in (*) do (
+    move "%%i" "%%~nxi"
+)
+
+:: Clean up
+for /d /r %%i in (*) do (
+    rd /s /q "%%i"
+)
+
 cd ..\
 
 :: Download portable mkvtoolnix 
