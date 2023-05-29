@@ -25,7 +25,7 @@ for %%d in (input input\completed-inputs output cache ) do (
    mkdir .\%%d  > nul
 )
 
-for %%d in (vapoursynth64-r62 ffmpegAv1an mkvtoolnix  svt-av1 vmaf aom rav1e x264) do (
+for %%d in (vapoursynth64-r62 ffmpeg-5.1.2 mkvtoolnix  svt-av1 vmaf aom rav1e x264) do (
     mkdir .\dependencies\%%d  > nul
 )
 
@@ -38,7 +38,7 @@ curl -O -C - --progress-bar https://web.archive.org/web/20230511215002/https://e
 :: Download av1an
 %Download-->% https://github.com/master-of-zen/Av1an/releases/download/latest/av1an.exe
 
-pushd .\dependencies\ffmpegAv1an
+pushd .\dependencies\ffmpeg-5.1.2
 
 :: Download ffmpeg with shared libaries 
 %Download-->% https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-5.1.2-full_build-shared.7z
