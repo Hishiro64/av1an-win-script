@@ -20,20 +20,27 @@ cd "%AV1%"
 echo   Installing
 echo  ````````````
 
-:: Create these directories
-for %%d in (input input\completed-inputs output) do (
-   mkdir .\%%d  > nul
-)
-
-for %%d in (vapoursynth64-r62 ffmpeg-5.1.2 ffmpeg-latest mkvtoolnix  svt-av1 vmaf aom rav1e x264) do (
-    mkdir .\dependencies\%%d  > nul
-)
-
-pushd .\scripts\ffmpeg
-
-for %%d in (input input\completed-inputs output) do (
-    mkdir .\%%d  > nul
-)
+:: Create directories if they don't exist
+for %%d in (
+    ".\input"
+    ".\input\completed-inputs"
+    ".\output"
+    ".\dependencies\vapoursynth64-r62"
+    ".\dependencies\ffmpeg-5.1.2"
+    ".\dependencies\ffmpeg-latest"
+    ".\dependencies\mkvtoolnix"
+    ".\dependencies\svt-av1"
+    ".\dependencies\vmaf"
+    ".\dependencies\aom"
+    ".\dependencies\rav1e"
+    ".\dependencies\x264"
+    ".\scripts\ffmpeg\input"
+    ".\scripts\ffmpeg\input\completed-inputs"
+    ".\scripts\ffmpeg\output"
+    ".\scripts\ffmpeg-vp9\input"
+    ".\scripts\ffmpeg-vp9\input\completed-inputs"
+    ".\scripts\ffmpeg-vp9\output"
+) do if not exist "%%~d" mkdir "%%~d"
 
 popd
 
