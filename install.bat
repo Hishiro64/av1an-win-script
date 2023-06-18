@@ -102,7 +102,8 @@ cd ..\
 cd .\vmaf
 
 :: Download vmaf model
-%Download-->% https://raw.githubusercontent.com/Netflix/vmaf/master/model/vmaf_v0.6.1.json
+%Download-->% https://raw.githubusercontent.com/Netflix/vmaf/master/model/vmaf_v0.6.1neg.json
+%Download-->% https://raw.githubusercontent.com/Netflix/vmaf/master/model/vmaf_4k_v0.6.1neg.json
 
 cd ..\
 cd .\x264
