@@ -34,6 +34,7 @@ for %%d in (
     ".\dependencies\aom"
     ".\dependencies\rav1e"
     ".\dependencies\x264"
+    ".\dependencies\x265"
     ".\scripts\ffmpeg\input"
     ".\scripts\ffmpeg\input\completed-inputs"
     ".\scripts\ffmpeg\output"
