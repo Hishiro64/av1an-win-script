@@ -12,7 +12,7 @@ set "AV1=%~dp0"
 cd "%AV1%"
 
 :: Set paths
-set path=%AV1%\dependencies\vapoursynth64-r62;%AV1%\dependencies\ffmpeg-5.1.2;%AV1%\dependencies\ffmpeg-latest;%AV1%\dependencies\mkvtoolnix;%AV1%\dependencies\svt-av1;%AV1%\dependencies\aom
+set path=%AV1%\dependencies\vapoursynth64-r62;%AV1%\dependencies\ffmpeg-5.1.2;%AV1%\dependencies\ffmpeg-latest;%AV1%\dependencies\mkvtoolnix;%AV1%\dependencies\svt-av1;%AV1%\dependencies\x264;%AV1%\dependencies\rav1e;%AV1%\dependencies\aom
 
 
 :: Count how many in queue
