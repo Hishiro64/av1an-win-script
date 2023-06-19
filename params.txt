@@ -1,1 +1,1 @@
- -e aom --resume -c mkvmerge --verbose --vmaf --vmaf-path .\dependencies\vmaf\vmaf_v0.6.1neg.json-a " -c:a copy " -v "  --threads=6 --cpu-used=6 --cq-level=24 --bit-depth=10 --disable-kf --end-usage=q "
+ -e aom --resume -c mkvmerge --verbose --vmaf --vmaf-path .\dependencies\vmaf\vmaf_v0.6.1neg.json -a " -c:a copy " -v "  --threads=6 --cpu-used=6 --cq-level=24 --bit-depth=10 --disable-kf --end-usage=q "
