@@ -116,7 +116,7 @@ cd .\x265
 
 :: Download x265 encoder
 %Download-->% https://github.com/jpsdr/x265/releases/download/r3.50.103/x265_r3_5_0_103.7z
-%Extract-->% .\r3.50.103/x265_r3_5_0_103.7z > nul
+%Extract-->% .\x265_r3_5_0_103.7z > nul
 MOVE /y .\Winthread\Multilib\Release\x265_x64.exe x265.exe > nul
 rmdir /s /q .\winthread
 rmdir /s /q .\llvm
