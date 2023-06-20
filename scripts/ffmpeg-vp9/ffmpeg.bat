@@ -36,15 +36,16 @@ set /p args2=<%FFMPEG%\params-pass2.txt
 set /a queue=1
 for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
 
-    echo ----------------------------
-    echo  FFmpeg VP9 ^| !queueCounter! left in queue
-    echo ````````````````````````````
+    echo -----------------------------------
+    echo  FFmpeg VP9 2-Pass ^| !queueCounter! left in queue
+    echo ```````````````````````````````````
 
     ffmpeg.exe -i "%%f" %args1% 
     ffmpeg.exe -i "%%f" %args2% ./output/output-%%~nf_!queue!.webm
 
-    :: Comment this out if you want to keep input files in place
+    :: Delete the following line, if you want to keep input files in place
     MOVE "%%f" .\input\completed-inputs > nul
+
     set /a queue+=1
     set /a queueCounter-=1
 
