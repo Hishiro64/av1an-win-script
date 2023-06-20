@@ -41,8 +41,9 @@ for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
 
     ffmpeg.exe -i "%%f" %args% ./output/output-%%~nf_!queue!.mkv
 
-    :: Comment this out if you want to keep input files in place
+    :: Delete the following line, if you want to keep input files in place
     MOVE "%%f" .\input\completed-inputs > nul
+    
     set /a queue+=1
     set /a queueCounter-=1
 
