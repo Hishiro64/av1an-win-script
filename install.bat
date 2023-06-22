@@ -148,8 +148,8 @@ del .\VapourSynth64-Portable-R62.7z
 cd ..\
 cd .\svt-av1
 
-:: Download SVT-AV1 release ~1.5.0
-curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4187469677/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
+:: Download SVT-AV1 release ~1.6.0
+curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4521722683/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
 
 (for /f "usebackq delims=" %%a in ("raw.txt") do (
     set "line=%%a"
@@ -158,14 +158,14 @@ curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4187469677/artifacts/d
 )) > "downloadlink.txt"
 
 
-%Download-->% -i .\downloadlink.txt -O SVT-AV1-1.5.zip
+%Download-->% -i .\downloadlink.txt -O SVT-AV1-1.6.zip
 
 :: Clean up
 del download > nul 2>&1
 del downloadlink.txt > nul
 del raw.txt > nul
 
-tar -xf .\SVT-AV1-1.5.zip --strip-components 2 > nul
+tar -xf .\SVT-AV1-1.6.zip --strip-components 2 > nul
 
 popd
 
