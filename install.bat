@@ -25,7 +25,7 @@ for %%d in (
     ".\input"
     ".\input\completed-inputs"
     ".\output"
-    ".\dependencies\vapoursynth64-r62"
+    ".\dependencies\vapoursynth64"
     ".\dependencies\ffmpeg-5.1.2"
     ".\dependencies\ffmpeg-latest"
     ".\dependencies\mkvtoolnix"
@@ -129,7 +129,7 @@ cd .\rav1e
 %Download-->% https://github.com/xiph/rav1e/releases/latest/download/rav1e.exe
 
 cd ..\
-cd .\vapoursynth64-r62
+cd .\vapoursynth64
 
 :: Download embedded Python ~3.11.2
 %Download-->% https://www.python.org/ftp/python/3.11.2/python-3.11.2-embed-amd64.zip
