@@ -136,14 +136,14 @@ cd .\vapoursynth64
 tar -xf .\python-3.11.2-embed-amd64.zip 
 del .\python-3.11.2-embed-amd64.zip
 
-:: Download VapourSynth64 Portable ~R62
-%Download-->% https://github.com/vapoursynth/vapoursynth/releases/download/R62/VapourSynth64-Portable-R62.7z
-%Extract-->% .\VapourSynth64-Portable-R62.7z > nul
-del .\VapourSynth64-Portable-R62.7z
+:: Download VapourSynth64 Portable ~R63
+%Download-->% https://github.com/vapoursynth/vapoursynth/releases/download/R63/VapourSynth64-Portable-R63.7z
+%Extract-->% .\VapourSynth64-Portable-R63.7z > nul
+del .\VapourSynth64-Portable-R63.7z
 
-:: Download plugins [But its broken for now]
-:: .\python.exe .\vsrepo.py update -p
-:: .\python.exe .\vsrepo.py install lsmas ffms2 -p
+:: Download plugins [These plugins used can spit out errors and is known to be broken on VapourSynth64-R62]
+ .\python.exe .\vsrepo.py update -p  > nul
+ .\python.exe .\vsrepo.py install lsmas ffms2 -p  > nul
 
 cd ..\
 cd .\svt-av1
