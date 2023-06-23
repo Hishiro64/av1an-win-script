@@ -149,7 +149,7 @@ cd ..\
 cd .\svt-av1
 
 :: Download SVT-AV1 release ~1.6.0
-curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4521722683/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
+curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4529418394/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
 
 (for /f "usebackq delims=" %%a in ("raw.txt") do (
     set "line=%%a"
