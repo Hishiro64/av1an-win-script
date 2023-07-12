@@ -98,6 +98,9 @@ cd .\aom
 %Extract-->% Skylake.Windows.aom-av1-psy-Windows-Endless_Possibility-LTO-2022-09-06.7z > nul
 MOVE /y aom-av1-psy-Windows-Endless_Possibility-Skylake-LTO-2022-09-06.exe aomenc.exe > nul
 
+:: Add reminder about using diffrent builds, forks, branches of encoders.
+echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
+
 cd ..\
 cd .\vmaf
 
@@ -111,6 +114,9 @@ cd .\x264
 :: Download x264 encoder
 %Download-->% https://artifacts.videolan.org/x264/release-win64/x264-r3107-a8b68eb.exe -O x264.exe
 
+:: Add reminder about using diffrent builds, forks, branches of encoders.
+echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
+
 cd ..\
 cd .\x265
 
@@ -121,6 +127,9 @@ MOVE /y .\Winthread\Multilib\Release\x265_x64.exe x265.exe > nul
 rmdir /s /q .\winthread
 rmdir /s /q .\llvm
 del ReadMe.txt
+
+:: Add reminder about using diffrent builds, forks, branches of encoders.
+echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
 
 cd ..\
 cd .\rav1e
@@ -166,6 +175,9 @@ del downloadlink.txt > nul
 del raw.txt > nul
 
 tar -xf .\SVT-AV1-1.6.zip --strip-components 2 > nul
+
+:: Add reminder about using diffrent builds, forks, branches of encoders.
+echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
 
 popd
 
