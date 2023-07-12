@@ -1,1 +1,0 @@
--c:v libvpx-vp9 -lag-in-frames 25 -arnr-strength 0 -deadline good -cpu-used 0 -auto-alt-ref 6 -tile-columns 0 -tile-rows 0 -aq-mode 0 -profile:v 2 -g 240 -row-mt 1 -frame-parallel 0 -pix_fmt yuv420p10le -tune-content default -enable-tpl 1 -b:v 0 -crf 32 -pass 2 -c:a libopus -b:a 128k

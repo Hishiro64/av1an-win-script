@@ -29,8 +29,8 @@ if !queueCounter! == 0 (
 )
 
 :: set paramaters for FFmpeg
-set /p args1=<%FFMPEG%\params-pass1.txt
-set /p args2=<%FFMPEG%\params-pass2.txt
+set /p args=<%FFMPEG%\params.txt
+set /p audio-args=<%FFMPEG%\audio-params.txt
 
 :: Recursively run FFmpeg on the contents in input
 set /a queue=1
@@ -40,8 +40,8 @@ for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
     echo  FFmpeg VP9 2-Pass ^| !queueCounter! left in queue
     echo ```````````````````````````````````
 
-    ffmpeg.exe -i "%%f" %args1% 
-    ffmpeg.exe -i "%%f" %args2% ./output/output-%%~nf_!queue!.webm
+    ffmpeg.exe -i "%%f" %args% -pass 1 -an -f null -
+    ffmpeg.exe -i "%%f" %args% -pass 2 %audio-args% ./output/output-%%~nf_!queue!.webm
 
     :: Delete the following line, if you want to keep input files in place
     MOVE "%%f" .\input\completed-inputs > nul
