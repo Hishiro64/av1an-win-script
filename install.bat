@@ -26,7 +26,7 @@ for %%d in (
     ".\input\completed-inputs"
     ".\output"
     ".\dependencies\vapoursynth64"
-    ".\dependencies\ffmpeg-5.1.2"
+    ".\dependencies\ffmpeg-6.0"
     ".\dependencies\ffmpeg-latest"
     ".\dependencies\mkvtoolnix"
     ".\dependencies\svt-av1"
@@ -54,18 +54,18 @@ curl -O -C - --progress-bar https://web.archive.org/web/20230511215002/https://e
 :: Download av1an
 %Download-->% https://github.com/master-of-zen/Av1an/releases/download/latest/av1an.exe
 
-pushd .\dependencies\ffmpeg-5.1.2
+pushd .\dependencies\ffmpeg-6.0
 
-:: Download ffmpeg with shared libaries ~5.1.2 
-%Download-->% https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-5.1.2-full_build-shared.7z
-%Extract-->% .\ffmpeg-5.1.2-full_build-shared.7z ffmpeg-5.1.2-full_build-shared\bin > nul
+:: Download ffmpeg with shared libaries ~6.0
+%Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z
+%Extract-->% .\ffmpeg-release-full-shared.7z ffmpeg-6.0-full_build-shared\bin > nul
 
 :: Move contents of bin
-for /R "ffmpeg-5.1.2-full_build-shared\bin" %%f in (*) do (
+for /R "ffmpeg-6.0-full_build-shared\bin" %%f in (*) do (
     move "%%f" "%destination%" > nul
 )
 
-rmdir /s /q .\ffmpeg-5.1.2-full_build-shared
+rmdir /s /q .\ffmpeg-6.0-full_build-shared
 
 cd ..\
 cd .\ffmpeg-latest
