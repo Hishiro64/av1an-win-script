@@ -9,7 +9,7 @@ setlocal enabledelayedexpansion
 set "AV1=%~dp0"
 
 :: Set Wget command
-set "Download-->=%AV1%\wget.exe -q -N --show-progress"
+set "Download-->=%AV1%\wget.exe -q -N --no-check-certificate --show-progress"
 
 :: Set 7zr command
 set "Extract-->=%AV1%\7zr.exe -y x"
