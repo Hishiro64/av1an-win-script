@@ -18,13 +18,11 @@ set "Extract-->=%AV1%\7zr.exe -y x"
 cd "%AV1%"
 
 echo   Installing
-echo  ````````````
-
+echo  ------------  
 :: Create directories if they don't exist
 for %%d in (
-    ".\input"
-    ".\input\completed-inputs"
-    ".\output"
+    ".\dependencies\av1an"
+    ".\dependencies\bat"
     ".\dependencies\vapoursynth64"
     ".\dependencies\ffmpeg-6.0"
     ".\dependencies\ffmpeg-latest"
@@ -41,6 +39,9 @@ for %%d in (
     ".\scripts\ffmpeg-vp9\input"
     ".\scripts\ffmpeg-vp9\input\completed-inputs"
     ".\scripts\ffmpeg-vp9\output"
+    ".\scripts\av1an-batch\input"
+    ".\scripts\av1an-batch\input\completed-inputs"
+    ".\scripts\av1an-batch\output"
 ) do if not exist "%%~d" mkdir "%%~d"
 
 popd
@@ -51,10 +52,21 @@ curl -O -C - --progress-bar https://web.archive.org/web/20230511215002/https://e
 :: Download portable 7zip
 %Download-->% https://www.7-zip.org/a/7zr.exe
 
+pushd .\dependencies\av1an
+
 :: Download av1an
 %Download-->% https://github.com/master-of-zen/Av1an/releases/download/latest/av1an.exe
 
-pushd .\dependencies\ffmpeg-6.0
+cd ..\
+cd .\bat
+
+:: Download bat
+%Download-->% https://github.com/sharkdp/bat/releases/download/v0.23.0/bat-v0.23.0-x86_64-pc-windows-msvc.zip -O bat.zip
+tar -xf .\bat.zip --strip-components 1 > nul
+del .\bat.zip
+
+cd ..\
+cd .\ffmpeg-6.0
 
 :: Download ffmpeg with shared libaries ~6.0
 %Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z
@@ -157,8 +169,8 @@ del .\VapourSynth64-Portable-R63.7z
 cd ..\
 cd .\svt-av1
 
-:: Download SVT-AV1 release ~1.6.0
-curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4494865248/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
+:: Download SVT-AV1 release ~1.7.0
+curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4948161494/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
 
 (for /f "usebackq delims=" %%a in ("raw.txt") do (
     set "line=%%a"
@@ -167,14 +179,14 @@ curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4494865248/artifacts/d
 )) > "downloadlink.txt"
 
 
-%Download-->% -i .\downloadlink.txt -O SVT-AV1-1.6.zip
+%Download-->% -i .\downloadlink.txt -O SVT-AV1-1.7.zip
 
 :: Clean up
 del download > nul 2>&1
 del downloadlink.txt > nul
 del raw.txt > nul
 
-tar -xf .\SVT-AV1-1.6.zip --strip-components 2 > nul
+tar -xf .\SVT-AV1-1.7.zip --strip-components 2 > nul
 
 :: Add reminder about using diffrent builds, forks, branches of encoders.
 echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
@@ -191,3 +203,4 @@ echo:
 echo Installation Finished
 echo:   Exiting...
 echo:
+PAUSE

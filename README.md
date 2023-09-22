@@ -13,7 +13,8 @@ A Windows Batch script that sets up [Av1an](https://github.com/master-of-zen/Av1
 You could also [download](https://github.com/Hishiro64/av1an-win-script/archive/refs/heads/main.zip), extract, and double click on `install.bat`
 
 ## 🚗 Usage
-   1. Place the videos you want to encode into the `input` directory
-   2. Modify the encoder augments by editing `params.txt` (Defaults are fine)
-   3. Run `encode.bat`
-   4. Once it finishes, the encoded videos should be in the `output` directory
+   1. Go in `/scripts/av1an-batch`
+   2. Place the videos you want to encode into the `input` directory
+   3. Modify the encoder augments by editing `params.txt` (Defaults are fine)
+   4. Run `encode.bat`
+   5. Once it finishes, the encoded videos should be in the `output` directory
