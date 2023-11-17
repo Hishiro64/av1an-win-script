@@ -98,8 +98,8 @@ for /d /r %%i in (*) do (
 
 cd ..\
 
-:: Download portable mkvtoolnix ~79.0
-%Download-->% https://mkvtoolnix.download/windows/releases/79.0/mkvtoolnix-64-bit-79.0.7z -O mkvtoolnix.7z
+:: Download portable mkvtoolnix ~80.0
+%Download-->% https://mkvtoolnix.download/windows/releases/80.0/mkvtoolnix-64-bit-80.0.7z -O mkvtoolnix.7z
 %Extract-->% .\mkvtoolnix.7z > nul
 del .\mkvtoolnix.7z
 
