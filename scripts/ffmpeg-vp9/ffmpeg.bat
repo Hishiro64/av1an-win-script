@@ -36,9 +36,9 @@ set /p audio-args=<%FFMPEG%\audio-params.txt
 set /a queue=1
 for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
 
-    echo -----------------------------------
+    echo ───────────────────────────────────
     echo  FFmpeg VP9 2-Pass ^| !queueCounter! left in queue
-    echo ```````````````````````````````````
+    echo ───────────────────────────────────
 
     ffmpeg.exe -i "%%f" %args% -pass 1 -an -f null -
     ffmpeg.exe -i "%%f" %args% -pass 2 %audio-args% ./output/output-%%~nf_!queue!.webm

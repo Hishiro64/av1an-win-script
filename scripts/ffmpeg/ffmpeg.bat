@@ -35,9 +35,9 @@ set /p args=<%FFMPEG%\params.txt
 set /a queue=1
 for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
 
-    echo ----------------------------
+    echo ────────────────────────────
     echo  FFmpeg ^| !queueCounter! left in queue
-    echo ````````````````````````````
+    echo ────────────────────────────
 
     ffmpeg.exe -i "%%f" %args% ./output/output-%%~nf_!queue!.mkv
 

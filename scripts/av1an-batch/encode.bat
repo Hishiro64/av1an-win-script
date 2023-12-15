@@ -40,9 +40,9 @@ set /p args=<%AV1%\params.txt
 set /a queue=1
 for %%f in (input\*.webm input\*.mp4 input\*.mkv input\*.mov) do (
 
-    echo ----------------------------
+    echo ────────────────────────────
     echo  Encoding ^| !queueCounter! left in queue
-    echo ----------------------------
+    echo ────────────────────────────
 
     :: Show full command being run
     echo av1an -i "%%f" -o "./output/output-%%~nf_!queue!.mkv" %args% > last_run
