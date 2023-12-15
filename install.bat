@@ -98,8 +98,8 @@ for /d /r %%i in (*) do (
 
 cd ..\
 
-:: Download portable mkvtoolnix ~80.0
-%Download-->% https://mkvtoolnix.download/windows/releases/80.0/mkvtoolnix-64-bit-80.0.7z -O mkvtoolnix.7z
+:: Download portable mkvtoolnix ~81.0
+%Download-->% https://mkvtoolnix.download/windows/releases/81.0/mkvtoolnix-64-bit-81.0.7z -O mkvtoolnix.7z
 %Extract-->% .\mkvtoolnix.7z > nul
 del .\mkvtoolnix.7z
 
@@ -124,7 +124,7 @@ cd ..\
 cd .\x264
 
 :: Download x264 encoder
-%Download-->% https://artifacts.videolan.org/x264/release-win64/x264-r3107-a8b68eb.exe -O x264.exe
+%Download-->% https://artifacts.videolan.org/x264/release-win64/x264-r3172-c1c9931.exe -O x264.exe
 
 :: Add reminder about using diffrent builds, forks, branches of encoders.
 echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
@@ -169,9 +169,10 @@ del .\VapourSynth64-Portable-R63.7z
 cd ..\
 cd .\svt-av1
 
-:: Download SVT-AV1 release ~1.7.0
-curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4948161494/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
+:: Download SVT-AV1 release ~1.8.0; Artifacts sometimes expire
+curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/5730186861/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
 
+:: Grab link
 (for /f "usebackq delims=" %%a in ("raw.txt") do (
     set "line=%%a"
     set "line=!line:~0,-11!"
@@ -179,14 +180,14 @@ curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/4948161494/artifacts/d
 )) > "downloadlink.txt"
 
 
-%Download-->% -i .\downloadlink.txt -O SVT-AV1-1.7.zip
+%Download-->% -i .\downloadlink.txt -O SVT-AV1-1.8.zip
 
 :: Clean up
 del download > nul 2>&1
 del downloadlink.txt > nul
 del raw.txt > nul
 
-tar -xf .\SVT-AV1-1.7.zip --strip-components 2 > nul
+tar -xf .\SVT-AV1-1.8.zip --strip-components 2 > nul
 
 :: Add reminder about using diffrent builds, forks, branches of encoders.
 echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
