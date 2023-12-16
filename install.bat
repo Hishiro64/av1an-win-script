@@ -170,7 +170,7 @@ cd ..\
 cd .\svt-av1
 
 :: Download SVT-AV1 release ~1.8.0; Artifacts sometimes expire
-curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/5730186861/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
+curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/5763507189/artifacts/download?file_type=archive" -O NUL -w "%%{url_effective}" > ./raw.txt
 
 :: Grab link
 (for /f "usebackq delims=" %%a in ("raw.txt") do (
