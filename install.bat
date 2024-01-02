@@ -18,13 +18,13 @@ set "Extract-->=%AV1%\7zr.exe -y x"
 cd "%AV1%"
 
 echo   Installing
-echo  ------------  
+echo  ────────────  
 :: Create directories if they don't exist
 for %%d in (
     ".\dependencies\av1an"
     ".\dependencies\bat"
     ".\dependencies\vapoursynth64"
-    ".\dependencies\ffmpeg-6.1"
+    ".\dependencies\ffmpeg-6.1.1"
     ".\dependencies\ffmpeg-latest"
     ".\dependencies\mkvtoolnix"
     ".\dependencies\svt-av1"
@@ -66,18 +66,18 @@ tar -xf .\bat.zip --strip-components 1 > nul
 del .\bat.zip
 
 cd ..\
-cd .\ffmpeg-6.1
+cd .\ffmpeg-6.1.1
 
-:: Download ffmpeg with shared libaries ~6.1
-%Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z
-%Extract-->% .\ffmpeg-release-full-shared.7z ffmpeg-6.1-full_build-shared\bin > nul
+:: Download ffmpeg with shared libaries ~6.1.1
+%Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z -O ffmpeg-release-full-shared.7z
+%Extract-->% .\ffmpeg-release-full-shared.7z ffmpeg-6.1.1-full_build-shared\bin > nul
 
 :: Move contents of bin
-for /R "ffmpeg-6.1-full_build-shared\bin" %%f in (*) do (
+for /R "ffmpeg-6.1.1-full_build-shared\bin" %%f in (*) do (
     move "%%f" "%destination%" > nul
 )
 
-rmdir /s /q .\ffmpeg-6.1-full_build-shared
+rmdir /s /q .\ffmpeg-6.1.1-full_build-shared
 
 cd ..\
 cd .\ffmpeg-latest
