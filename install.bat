@@ -33,6 +33,8 @@ for %%d in (
     ".\dependencies\rav1e"
     ".\dependencies\x264"
     ".\dependencies\x265"
+    ".\dependencies\nasm"
+    ".\dependencies\git"	
     ".\scripts\ffmpeg\input"
     ".\scripts\ffmpeg\input\completed-inputs"
     ".\scripts\ffmpeg\output"
@@ -160,7 +162,17 @@ del .\python-3.11.2-embed-amd64.zip
 :: Download VapourSynth64 Portable ~R63
 %Download-->% https://github.com/vapoursynth/vapoursynth/releases/download/R63/VapourSynth64-Portable-R63.7z
 %Extract-->% .\VapourSynth64-Portable-R63.7z > nul
-del .\VapourSynth64-Portable-R63.7z
+del .\VapourSynth64-Portable-R63.7z > nul
+
+cd ..\
+
+:: Download nasm from https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-win64.zip
+%Download-->% https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-win64.zip
+tar -xf .\nasm-2.16.01-win64.zip --strip-components 1 -C nasm
+
+:: Download git from https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/PortableGit-2.43.0-64-bit.7z.exe
+%Download-->% https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/PortableGit-2.43.0-64-bit.7z.exe
+%Extract-->% PortableGit-2.43.0-64-bit.7z.exe -ogit > nul
 
 :: Download plugins [These plugins used can spit out errors and is known to be broken on VapourSynth64-R62]
  .\python.exe .\vsrepo.py update -p  > nul
