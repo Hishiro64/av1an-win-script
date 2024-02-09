@@ -24,16 +24,22 @@ set PATH=!PATH!;%AV1%\..\..\dependencies\git\bin
 git clone https://github.com/microsoft/vcpkg ..\..\dependencies\vcpkg 2>nul
 
 set PATH=!PATH!;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\
-
+set PATH=!PATH!;%SYSTEMROOT%\System32
+:: TODO make this dynamic
+set PATH=!PATH!;"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.38.33130\bin\Hostx64\x64"
 ::LLVM
 :: powershell.exe Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 :: powershell.exe Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 :: scoop install main/llvm
 
 cd ..\..\dependencies\vcpkg\scripts
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File bootstrap.ps1 --quiet --no-verbose >$null 2>&1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File bootstrap.ps1 >$null 2>&1
+
 ::vcpkg install 
 cd ..
+::vcpkg update
+git pull
+vcpkg update
 :: make it build release only
 cd triplets
 del x64-windows-rel.cmake
@@ -43,6 +49,9 @@ ECHO set(VCPKG_LIBRARY_LINKAGE dynamic) >> x64-windows-rel.cmake
 ECHO set(VCPKG_BUILD_TYPE release) >> x64-windows-rel.cmake
 cd ..
 vcpkg install ffmpeg:x64-windows-rel --vcpkg-root=..\..\dependencies\vcpkg
+
+:: Clang
+setx LIBCLANG_PATH %AV1%\..\..\dependencies\clang\bin
 
 :: Clone av1an repo
 git clone https://github.com/master-of-zen/Av1an ..\..\source 2>nul
@@ -55,6 +64,7 @@ copy ..\..\dependencies\vapoursynth64\sdk\lib64\VSScript.lib ..\..\source > NUL
 :: assuming rust is installed
 set PATH=!PATH!;C:\Users\%username%\.cargo\bin
 cd ..\..\source
+git pull
 cargo build -r
 
 copy target\release\av1an.exe .. > NUL
