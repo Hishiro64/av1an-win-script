@@ -1,0 +1,16 @@
+SVT-AV1-1.8.zip
+SvtAv1ApiTests.exe
+SvtAv1Dec.dll
+SvtAv1DecApp.exe
+SvtAv1E2ETests.exe
+SvtAv1Enc.dll
+SvtAv1EncApp.exe
+SvtAv1UnitTests.exe
+av1an.exe
+dependencies/
+gtest.dll
+gtest_all.dll
+gtest_main.dll
+readme.txt
+source/
+*.dll

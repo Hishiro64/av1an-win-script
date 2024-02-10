@@ -17,8 +17,9 @@ set "Extract-->=%AV1%\7zr.exe -y x"
 :: Correct path
 cd "%AV1%"
 
-echo   Installing
-echo  ────────────  
+echo ----------
+echo Installing
+echo ----------   
 :: Create directories if they don't exist
 for %%d in (
     ".\dependencies\av1an"
@@ -33,6 +34,9 @@ for %%d in (
     ".\dependencies\rav1e"
     ".\dependencies\x264"
     ".\dependencies\x265"
+    ".\dependencies\nasm"
+    ".\dependencies\git"
+    ".\dependencies\clang"
     ".\scripts\ffmpeg\input"
     ".\scripts\ffmpeg\input\completed-inputs"
     ".\scripts\ffmpeg\output"
@@ -70,14 +74,8 @@ cd .\ffmpeg-6.1.1
 
 :: Download ffmpeg with shared libaries ~6.1.1
 %Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z -O ffmpeg-release-full-shared.7z
-%Extract-->% .\ffmpeg-release-full-shared.7z ffmpeg-6.1.1-full_build-shared\bin > nul
-
-:: Move contents of bin
-for /R "ffmpeg-6.1.1-full_build-shared\bin" %%f in (*) do (
-    move "%%f" "%destination%" > nul
-)
-
-rmdir /s /q .\ffmpeg-6.1.1-full_build-shared
+tar -xf ffmpeg-release-full-shared.7z --strip-components=1
+del ffmpeg-release-full-shared.7z
 
 cd ..\
 cd .\ffmpeg-latest
@@ -160,7 +158,7 @@ del .\python-3.11.2-embed-amd64.zip
 :: Download VapourSynth64 Portable ~R63
 %Download-->% https://github.com/vapoursynth/vapoursynth/releases/download/R63/VapourSynth64-Portable-R63.7z
 %Extract-->% .\VapourSynth64-Portable-R63.7z > nul
-del .\VapourSynth64-Portable-R63.7z
+del .\VapourSynth64-Portable-R63.7z > nul
 
 :: Download plugins [These plugins used can spit out errors and is known to be broken on VapourSynth64-R62]
  .\python.exe .\vsrepo.py update -p  > nul
@@ -181,13 +179,13 @@ curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/5763507189/artifacts/d
 
 
 %Download-->% -i .\downloadlink.txt -O SVT-AV1-1.8.zip
+tar -xf .\SVT-AV1-1.8.zip --strip-components 2 > nul
+del SVT-AV1-1.8.zip
 
 :: Clean up
 del download > nul 2>&1
 del downloadlink.txt > nul
 del raw.txt > nul
-
-tar -xf .\SVT-AV1-1.8.zip --strip-components 2 > nul
 
 :: Add reminder about using diffrent builds, forks, branches of encoders.
 echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
