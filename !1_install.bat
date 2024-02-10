@@ -17,8 +17,9 @@ set "Extract-->=%AV1%\7zr.exe -y x"
 :: Correct path
 cd "%AV1%"
 
-echo   Installing
-echo  ────────────  
+echo ----------
+echo Installing
+echo ----------   
 :: Create directories if they don't exist
 for %%d in (
     ".\dependencies\av1an"
@@ -162,32 +163,6 @@ del .\VapourSynth64-Portable-R63.7z > nul
 :: Download plugins [These plugins used can spit out errors and is known to be broken on VapourSynth64-R62]
  .\python.exe .\vsrepo.py update -p  > nul
  .\python.exe .\vsrepo.py install lsmas ffms2 -p  > nul
-
-cd ..\
-
-:: Download nasm from https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-win64.zip
-%Download-->% https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-win64.zip
-tar -xf .\nasm-2.16.01-win64.zip --strip-components 1 -C nasm
-
-:: Download git from https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/PortableGit-2.43.0-64-bit.7z.exe
-%Download-->% https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/PortableGit-2.43.0-64-bit.7z.exe
-%Extract-->% PortableGit-2.43.0-64-bit.7z.exe -ogit > nul
-
-:: Download clang from https://github.com/vovkos/llvm-package-windows/releases/download/clang-master/clang-13.0.0-windows-amd64-msvc15-msvcrt.7z
-%Download-->% https://github.com/vovkos/llvm-package-windows/releases/download/clang-master/clang-13.0.0-windows-amd64-msvc15-msvcrt.7z
-tar -xf clang-13.0.0-windows-amd64-msvc15-msvcrt.7z --strip-components=1 -C clang > nul
-
-:: Download vs build tools
-%Download-->% https://aka.ms/vs/17/release/vs_BuildTools.exe
-::vs_BuildTools.exe --add Microsoft.VisualStudio.Workload.VCTools --wait --quiet 
-::vs_BuildTools.exe --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --wait --quiet
-::vs_BuildTools.exe --add Microsoft.VisualStudio.Component.Windows11SDK.22000 --wait --quiet
-::winget install Microsoft.VisualStudio.2022.BuildTools --force --override "--wait --passive --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000"
-vs_BuildTools.exe --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000 --wait --quiet 
-
-:: Download Rustup
-%Download-->% https://win.rustup.rs/x86_64 -O rustup-init.exe
-rustup-init.exe -qy
 
 cd ..\
 cd .\svt-av1

@@ -95,6 +95,6 @@ git pull
 ::cargo build
 cargo build -r
 
-copy target\release\av1an.exe .. > NUL
+copy target\release\av1an.exe ..\dependencies\av1an > NUL
 
 pause
