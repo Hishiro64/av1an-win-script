@@ -73,14 +73,8 @@ cd .\ffmpeg-6.1.1
 
 :: Download ffmpeg with shared libaries ~6.1.1
 %Download-->% https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.7z -O ffmpeg-release-full-shared.7z
-%Extract-->% .\ffmpeg-release-full-shared.7z ffmpeg-6.1.1-full_build-shared\bin > nul
-
-:: Move contents of bin
-for /R "ffmpeg-6.1.1-full_build-shared\bin" %%f in (*) do (
-    move "%%f" "%destination%" > nul
-)
-
-rmdir /s /q .\ffmpeg-6.1.1-full_build-shared
+tar -xf ffmpeg-release-full-shared.7z --strip-components=1
+del ffmpeg-release-full-shared.7z
 
 cd ..\
 cd .\ffmpeg-latest
@@ -165,6 +159,10 @@ del .\python-3.11.2-embed-amd64.zip
 %Extract-->% .\VapourSynth64-Portable-R63.7z > nul
 del .\VapourSynth64-Portable-R63.7z > nul
 
+:: Download plugins [These plugins used can spit out errors and is known to be broken on VapourSynth64-R62]
+ .\python.exe .\vsrepo.py update -p  > nul
+ .\python.exe .\vsrepo.py install lsmas ffms2 -p  > nul
+
 cd ..\
 
 :: Download nasm from https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-win64.zip
@@ -181,17 +179,15 @@ tar -xf clang-13.0.0-windows-amd64-msvc15-msvcrt.7z --strip-components=1 -C clan
 
 :: Download vs build tools
 %Download-->% https://aka.ms/vs/17/release/vs_BuildTools.exe
-vs_BuildTools.exe --wait --passive --quiet --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64
-::--add Microsoft.VisualStudio.Workload.VCTools  --add Microsoft.VisualStudio.Component.Windows11SDK.22000
+::vs_BuildTools.exe --add Microsoft.VisualStudio.Workload.VCTools --wait --quiet 
+::vs_BuildTools.exe --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --wait --quiet
+::vs_BuildTools.exe --add Microsoft.VisualStudio.Component.Windows11SDK.22000 --wait --quiet
 ::winget install Microsoft.VisualStudio.2022.BuildTools --force --override "--wait --passive --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000"
+vs_BuildTools.exe --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000 --wait --quiet 
 
 :: Download Rustup
 %Download-->% https://win.rustup.rs/x86_64 -O rustup-init.exe
 rustup-init.exe -qy
-
-:: Download plugins [These plugins used can spit out errors and is known to be broken on VapourSynth64-R62]
- .\python.exe .\vsrepo.py update -p  > nul
- .\python.exe .\vsrepo.py install lsmas ffms2 -p  > nul
 
 cd ..\
 cd .\svt-av1
@@ -208,13 +204,13 @@ curl -sLf "https://gitlab.com/AOMediaCodec/SVT-AV1/-/jobs/5763507189/artifacts/d
 
 
 %Download-->% -i .\downloadlink.txt -O SVT-AV1-1.8.zip
+tar -xf .\SVT-AV1-1.8.zip --strip-components 2 > nul
+del SVT-AV1-1.8.zip
 
 :: Clean up
 del download > nul 2>&1
 del downloadlink.txt > nul
 del raw.txt > nul
-
-tar -xf .\SVT-AV1-1.8.zip --strip-components 2 > nul
 
 :: Add reminder about using diffrent builds, forks, branches of encoders.
 echo 'If you want to use a diffrent build or version of an encoder, Just replace it using the same executable name.' > readme.txt
